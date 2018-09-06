@@ -1,0 +1,30 @@
+# Spaceman!!! Game
+
+Section 1: Generate a Random word
+-Drawing either from a coded repo of words, or some sort of dictionary library,
+use a random function to pick a word.
+-If it is a coded repo (perhaps easier in this regard)--display the category of
+word
+
+Section 2: User View (will i be storing user inputs, or showing them?)
+-Count the number of characters in the chosen word, and display the corresponding
+number of blank spaces
+
+Section 3: User Inputs and Consequences
+-Prompt the user to enter a letter
+-Maybe keep a record of which letters have been used in an empty list, appended
+with every entry (and display it in the terminal) // Conversely, can have is so that
+only the remaining letters are displayed
+    o Do not allow re-entry of letters!
+-For every entry, check character string of chosen word, and return EVERY instance of
+that letter, otherwise a "print" statement declaring that the letter is incorrect
+    o Stretch: For every incorrect entry, keep a tally for suspense--a visual would be
+    even better!!!
+
+Section 4: 7 incorrect
+-If 7 incorrect letters are entered, display a print statement about spaceman flying away,
+terminal art (more difficult), or maybe connect to an automatically opening GIF (localhost?)
+
+Section 5: <7 incorrect + A complete word!!!
+-If the word is completed before the incorrect words list contains 7 entries,
+display some sort of GOOD JOB, or some sort of awesome GIF? XD
