@@ -1,11 +1,11 @@
 # Create a dictionary of words to be used in the game, with "Categories" as keys
-# and corresponding words as values
+# and corresponding words as values--limit to 25 per category
 # N.B. Dictionary derived from: http://www.enchantedlearning.com/wordlist/
 var word_dictionary = {
-    "Animals" : [],
-    "Art" : [],
-    "Astronomy" : [],
-    "Beach" : [],
+    "Animals" : [aardvark, alligator, alpaca, baboon, badger, bison, buffalo, camel, caribou, cheetah, cougar, crocodile, elephant, flamingo, hamster, penguin, possum, ocelot, raccoon, sheep, tortoise, turtle, weasel, whelk, zorilla],
+    "Art" : [airbrush, carving, ceramics, collage, crosshatching, decoupage, easel, engraving, fresco, glassblowing, graffiti, landscape, masterpiece, mosaic, paintbrush, palette, printing, realism, relief, sculpture, watercolor],
+    "Astronomy" : [apogee, asteroid, constellation, corona, Earth, heliocentric, hypernova, galaxy, gravitation, Jupiter, Mars, Mercury, nebula, Neptune, parallax, penumbra, Pluto, quasar, Saturn, supernova, Uranus, Venus, zodiac],
+    "Beach" : [bikini, boardwalk, catamaran, currents, lifeguard, longboard, paddleboat, popsicle, sailboat, sandcastle, seashell, seashore, starfish, sunbathe, sunburn, sunglasses, sunscreen, surfboard, tsunami, umbrella, volleyball],
     "Biomes" : [],
     "Body" : [],
     "Carpenter's Tools" : [],
