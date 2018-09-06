@@ -1,21 +1,21 @@
 # Create a dictionary of words to be used in the game, with "Categories" as keys
 # and corresponding words as values--limit to 25 per category
-# N.B. Dictionary derived from: http://www.enchantedlearning.com/wordlist/
+# N.B. Dictionary derived [in part] from: http://www.enchantedlearning.com/wordlist/
 var word_dictionary = {
     "Animals" : [aardvark, alligator, alpaca, baboon, badger, bison, buffalo, camel, caribou, cheetah, cougar, crocodile, elephant, flamingo, hamster, penguin, possum, ocelot, raccoon, sheep, tortoise, turtle, weasel, whelk, zorilla],
     "Art" : [airbrush, carving, ceramics, collage, crosshatching, decoupage, easel, engraving, fresco, glassblowing, graffiti, landscape, masterpiece, mosaic, paintbrush, palette, printing, realism, relief, sculpture, watercolor],
     "Astronomy" : [apogee, asteroid, constellation, corona, Earth, heliocentric, hypernova, galaxy, gravitation, Jupiter, Mars, Mercury, nebula, Neptune, parallax, penumbra, Pluto, quasar, Saturn, supernova, Uranus, Venus, zodiac],
     "Beach" : [bikini, boardwalk, catamaran, currents, lifeguard, longboard, paddleboat, popsicle, sailboat, sandcastle, seashell, seashore, starfish, sunbathe, sunburn, sunglasses, sunscreen, surfboard, tsunami, umbrella, volleyball],
-    "Biomes" : [],
-    "Body" : [],
-    "Carpenter's Tools" : [],
-    "Christmas" : [],
-    "Colors" : [],
-    "Computers" : [],
-    "Cooking Tools" : [],
-    "Country Names" : [],
-    "Desserts" : [],
-    "Dogs" : [],
+    "Biomes" : [chaparral, desert, grassland, jungle, plain, rainforest, savanna, swamp, taiga, tundra, woodland],
+    "Body" : [abdomen, ankle, artery, bladder, capillary, cartilage, clavicle, diaphragm, esophagus, femur, intestines, kidney, larynx, pharynx, sternum, thorax, trachea, urethra, wrist],
+    "Carpenter's Tools" : [anvil, chisel, crowbar, fastener, hacksaw, hammer, screwdriver, sharpener, toolbox, wedge, workbench, wrench],
+    "Christmas" : [blizzard, caroling, chestnuts, chimney, cookies, decorations, eggnog, evergreen, fireplace, fruitcake, gingerbread, Krampus, mistletoe, nutcracker, ornaments, presents, Rudolph, sugarplums, yuletide],
+    "Colors" : [amber, amethyst, aquamarine, beige, cerulean, chartreuse, crimson, cyan, ebony, emerald, fuchsia, indigo, lavendar, lilac, magenta, maroon, periwinkle, sienna, slate, vermilion, wisteria],
+    "Computers" : [algorithm, application, array, binary, browser, captcha, command, dashboard, desktop, document, domain, download, encryption, hardware, hypertext, kernel, malware, phishing, programmer, spreadsheet, typeface],
+    "Cooking Tools" : [apron, carafe, colander, cookbook, cutlery, infuser, grater, juicer, peeler, percolater, ramekin, skewer, strainer, tablespoon, teaspoon, zester],
+    "Country Names" : [Afghanistan, Albania, Algeria, Argentina, Australia, Azerbaijan, Bahamas, Bangladesh, Bahrain, Belgium, Bulgaria, Cambodia, Canada, Croatia, Denmark, Ecuador, Finland, Germany, Guatemala, Hungary, Iceland, Ireland, Jamaica, Kuwait, Latvia, Lebanon, Lithuania, Luxembourg, Macedonia, Madagascar, Malaysia, Mexico, Mongolia, Morocco, Netherlands, Nicaragua, Pakistan, Panama, Paraguay, Philippines, Portugal, Romania, Rwanda, Senegal, Somalia, Switzerland, Tanzania, Thailand, Tunisia, Uganda, Ukraine, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia, Zimbabwe],
+    "Desserts" : [baklava, biscotti, brownies, butterscotch, cannoli, churros, cobbler, cupcakes, custard, doughnut, eclair, fudge, gingersnaps, jellyroll, ladyfingers, macaroon, meringue, nougat, parfait, shortbread, snickerdoodles, souffle, spumoni, strudel, sundae, torte, trifle, turnover, waffles, zabaglione],
+    "Dogs" : [beagle, bloodhound, bulldog, corgi, dachshund, dalmatian, husky, maltese, poodle, purebred, retriever, samoyed, schnauser, spaniel, westie],
     "Elements" : [],
     "Fields of Science" : [],
     "Fish" : [],
