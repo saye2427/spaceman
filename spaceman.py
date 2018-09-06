@@ -1,5 +1,5 @@
-# Create a dictionary of words to be used in the game, with "Categories" as keys
-# and corresponding words as values--limit to 25 per category
+# Create a dictionary of words to be used in the game, with "Categories" as keys and corresponding words as values
+# Limit to single words (not two-word compound entries), and entries 5 letters or more
 # N.B. Dictionary derived [in part] from: http://www.enchantedlearning.com/wordlist/
 var word_dictionary = {
     "Animals" : [aardvark, alligator, alpaca, baboon, badger, bison, buffalo, camel, caribou, cheetah, cougar, crocodile, elephant, flamingo, hamster, penguin, possum, ocelot, raccoon, sheep, tortoise, turtle, weasel, whelk, zorilla],
@@ -16,9 +16,9 @@ var word_dictionary = {
     "Country Names" : [Afghanistan, Albania, Algeria, Argentina, Australia, Azerbaijan, Bahamas, Bangladesh, Bahrain, Belgium, Bulgaria, Cambodia, Canada, Croatia, Denmark, Ecuador, Finland, Germany, Guatemala, Hungary, Iceland, Ireland, Jamaica, Kuwait, Latvia, Lebanon, Lithuania, Luxembourg, Macedonia, Madagascar, Malaysia, Mexico, Mongolia, Morocco, Netherlands, Nicaragua, Pakistan, Panama, Paraguay, Philippines, Portugal, Romania, Rwanda, Senegal, Somalia, Switzerland, Tanzania, Thailand, Tunisia, Uganda, Ukraine, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia, Zimbabwe],
     "Desserts" : [baklava, biscotti, brownies, butterscotch, cannoli, churros, cobbler, cupcakes, custard, doughnut, eclair, fudge, gingersnaps, jellyroll, ladyfingers, macaroon, meringue, nougat, parfait, shortbread, snickerdoodles, souffle, spumoni, strudel, sundae, torte, trifle, turnover, waffles, zabaglione],
     "Dogs" : [beagle, bloodhound, bulldog, corgi, dachshund, dalmatian, husky, maltese, poodle, purebred, retriever, samoyed, schnauser, spaniel, westie],
-    "Elements" : [],
-    "Fields of Science" : [],
-    "Fish" : [],
+    "Elements" : [actinium, aluminum, americium, antimony, argon, barium, beryllium, bismuth, bohrium, boron, bromine, cadmium, calcium, californium, carbon, cerium, cesium, chlorine, chromine, cobalt, copper, curium, dubnium, dysprosium, einsteinium, europium, fluorine, francium, gallium, germanium, hafnium, helium, hydrogen, indium, iodine, iridium, krypton, lanthanum, lawrencium, lithium, magnesium, manganese, mendelevium, mercury, molybdenum, neptunium, nickel, niobium, nitrogen, osmium, oxygen, palladium, phosphorus, platinum, plutonium, polonium, potassium, promethium, protactinium, radium, radon, rhenium, rhodium, rubidium, ruthenium, rutherfordium, scandium, selenium, silicon, sodium, strontium, sulfur, technetium, thallium, titanium, tungsten, ununtrium, uranium, vanadium, xenon, yttrium, zirconium],
+    "Fields of Science" : [aerodynamics, anatomy, anthropology, archaeology, astronomy, bacteriology, biochemistry, biology, biophysics, botany, cartography, chemistry, climatology, cosmology, criminology, dermatology, ecology, embryology, entomology, epidemiology, exobiology, genetics, genomics, geology, geophysics, gerontology, hematology, herpetology, histology, hydrology, immunology, kinesiology, meteorology, microbiology, mineralogy, morphology, neurology, neuroscience, nutrition, oceanography, oncology, ornithology, paleontology, pathology, petrology, physics, physiology, psychology, radiology, sociology, taxonomy, thermodynamics, toxicology, urology, zoology],
+    "Fish" : [angelfish, angelshark, barracuda, blowfish, bonito, catfish, clownfish, dogfish, dragonfish, flounder, glassfish, goldfish, guppy, haddock, hagfish, halibut, hatchetfish, herring, icefish, jackfish, lamprey, lanternfish, lungfish, mackerel, Megalodon, minnow, monkfish, mullet, needlefish, oarfish, paddlefish, parrotfish, perch, piranha, pollock, pufferfish, quillfish, remora, rockfish, salmon, sardine, sawfish, sculpin, seabass, seadragon, seahorse, smelt, snapper, stingray, sturgeon, sunfish, swordfish, whiting, yellowtail, zebrafish],
     "Flowers" : [],
     "Food" : [],
     "Fruit" : [],
