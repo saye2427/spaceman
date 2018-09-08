@@ -2,9 +2,9 @@
 
 Section 1: Generate a Random word
 -Drawing either from a coded repo of words, or some sort of dictionary library,
-use a random function to pick a word.
+use a random function to pick a word.✓
 -If it is a coded repo (perhaps easier in this regard)--display the category of
-word
+word✓
 
 Section 2: User View (will i be storing user inputs, or showing them?)
 -Count the number of characters in the chosen word, and display the corresponding

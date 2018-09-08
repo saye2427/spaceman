@@ -97,7 +97,10 @@ def random_word_selection():
         selected_word = random.choice(word_list)
 
     # print(selected_word)
+    num_chars = len(selected_word)
+    print(num_chars * "_ ")
     return selected_word
+
 
 # test function!!!
 def test():
@@ -107,9 +110,10 @@ def test():
     # print(random.choice(word_dictionary.values()))
     # # return random key AND value from dictionary
     # print(random.choice(word_dictionary.items()))
+
     # random_category_selection() <--DOES NOT NEED TO BE CALLED-->
     random_word_selection()
 
-
-# function calls
-test()
+# required function calls
+# test()
+random_word_selection()
