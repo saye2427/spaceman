@@ -42,6 +42,7 @@ import random
 #     "Weather" : ["accumulation", "atmosphere", "aurora", "balmy", "barometer", "biosphere", "blizzard", "blustery", "breeze", "cirrus", "climate", "cloud", "condensation", "cumulonimbus", "cumulus", "current", "cyclone", "degree", "depression", "downdraft", "downpour", "downwind", "drizzle", "drought", "duststorm", "evaporation", "forecast", "humidity", "hurricane", "hydrosphere", "isotherm", "lightning", "meteorology", "moisture", "monsoon", "nimbus", "nimbostratus", "noreaster", "overcast", "permafrost", "precipitation", "pressure", "radar", "rainbow", "sandstorm", "snowfall", "snowstorm", "stratosphere", "stratus", "temperate", "temperature", "thermometer", "thunderstorm", "troposphere", "typhoon", "upwind", "visibility", "vortex", "weathervane", "whiteout", "zones"],
 # }
 
+# Word lists!!!
 Animals = ["aardvark", "alligator", "alpaca", "baboon", "badger", "bison", "buffalo", "camel", "caribou", "cheetah", "cougar", "crocodile", "elephant", "flamingo", "hamster", "penguin", "possum", "ocelot", "raccoon", "sheep", "tortoise", "turtle", "weasel", "whelk", "zorilla"],
 Art = ["airbrush", "carving", "ceramics", "collage", "crosshatching", "decoupage", "easel", "engraving", "fresco", "glassblowing", "graffiti", "landscape", "masterpiece", "mosaic", "paintbrush", "palette", "printing", "realism", "relief", "sculpture", "watercolor"],
 Astronomy = ["apogee", "asteroid", "constellation", "corona", "Earth", "heliocentric", "hypernova", "galaxy", "gravitation", "Jupiter", "Mars", "Mercury", "nebula", "Neptune", "parallax", "penumbra", "Pluto", "quasar", "Saturn", "supernova", "Uranus", "Venus", "zodiac"],
@@ -84,8 +85,19 @@ var_list = [Animals, Art, Astronomy, Beach, Biomes, Body, Carpenters_Tools, Chri
 def random_category_selection():
     category = random.choice(category_list)
     cat_index = category_list.index(category)
+    word_list = var_list[cat_index]
 
     print("Your category is " + str(category_list[cat_index]).upper())
+
+    return word_list
+
+# function for retrieving a word from selected category
+def random_word_selection():
+    for word_list in random_category_selection():
+        selected_word = random.choice(word_list)
+
+    # print(selected_word)
+    return selected_word
 
 # test function!!!
 def test():
@@ -95,7 +107,9 @@ def test():
     # print(random.choice(word_dictionary.values()))
     # # return random key AND value from dictionary
     # print(random.choice(word_dictionary.items()))
-    random_category_selection()
+    # random_category_selection() <--DOES NOT NEED TO BE CALLED-->
+    random_word_selection()
+
 
 # function calls
 test()
