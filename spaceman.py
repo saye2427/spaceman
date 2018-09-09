@@ -4,6 +4,8 @@
 
 # import python library for random selection
 import random
+import time
+import os
 
 # word_dictionary = {
 #     "Animals" : ["aardvark", "alligator", "alpaca", "baboon", "badger", "bison", "buffalo", "camel", "caribou", "cheetah", "cougar", "crocodile", "elephant", "flamingo", "hamster", "penguin", "possum", "ocelot", "raccoon", "sheep", "tortoise", "turtle", "weasel", "whelk", "zorilla"],
@@ -81,6 +83,25 @@ Weather = ["accumulation", "atmosphere", "aurora", "balmy", "barometer", "biosph
 category_list = ["Animals", "Art", "Astronomy", "Beach", "Biomes", "Body", "Carpenters_Tools", "Christmas", "Colors", "Computers", "Cooking_Tools", "Country_Names", "Desserts", "Dogs", "Elements", "Fields_of_Science", "Fish", "Flowers", "Food_and_Drink", "Fruit", "Herbs_and_Spices", "Holidays", "Insects", "Languages", "Measurement", "Metals", "Musical_Instruments", "Plants", "Rocks_and_Minerals", "Science_and_Lab", "Shapes", "Sports", "Vegetables", "Weather"]
 var_list = [Animals, Art, Astronomy, Beach, Biomes, Body, Carpenters_Tools, Christmas, Colors, Computers, Cooking_Tools, Country_Names, Desserts, Dogs, Elements, Fields_of_Science, Fish, Flowers, Food_and_Drink, Fruit, Herbs_and_Spices, Holidays, Insects, Languages, Measurement, Metals, Musical_Instruments, Plants, Rocks_and_Minerals, Science_and_Lab, Shapes, Sports, Vegetables, Weather]
 
+# welcome function
+def hello_user():
+    print("Hello there! Welcome to spaceman, a less gruesome version of the favorite wordgame, hangman!")
+
+# ready to play function -- drawn from madlibs app
+def ready_to_play():
+    ready = str(input("Are you ready to play? (y/n): "))
+    if ready == 'y' or ready == 'Y':
+        print("Alright, time to put on your best thinking-cap!!!")
+        time.sleep(1)
+        os.system('clear')
+    elif ready == 'n' or ready == 'N':
+        print("Okay, goodbye.")
+        time.sleep(1)
+        sys.exit()
+    else:
+        print("Invalid input! Please try again.")
+        ready_to_play()
+
 # function for retrieving a random category
 def random_category_selection():
     category = random.choice(category_list)
@@ -98,9 +119,13 @@ def random_word_selection():
 
     # print(selected_word)
     num_chars = len(selected_word)
-    print(num_chars * "_ ")
-    return selected_word
+    print("")
+    print("Can you guess the word?:")
 
+    blanks = str(num_chars * "_ ")
+    print(blanks)
+    print("")
+    return selected_word
 
 # test function!!!
 def test():
@@ -116,4 +141,6 @@ def test():
 
 # required function calls
 # test()
+hello_user()
+ready_to_play()
 random_word_selection()
