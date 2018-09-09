@@ -127,6 +127,15 @@ def random_word_selection():
     print("")
     return selected_word
 
+def user_guess():
+    user_guess = input("Enter a letter you think is in this word: ")
+    total_user_guesses = 1
+    while total_user_guesses < 7:
+        user_guess = input("Enter another guess: ")
+        total_user_guesses += 1
+
+    # print(total_user_guesses)
+
 # test function!!!
 def test():
     # # return random key from dict
@@ -138,9 +147,10 @@ def test():
 
     # random_category_selection() <--DOES NOT NEED TO BE CALLED-->
     random_word_selection()
+    user_guess()
 
 # required function calls
-# test()
-hello_user()
-ready_to_play()
-random_word_selection()
+test()
+# hello_user()
+# ready_to_play()
+# random_word_selection()
