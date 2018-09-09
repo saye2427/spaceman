@@ -115,9 +115,11 @@ def random_category_selection():
 # function for retrieving a word from selected category
 def random_word_selection():
     for word_list in random_category_selection():
+        global selected_word
         selected_word = random.choice(word_list)
 
     # print(selected_word)
+    global num_chars
     num_chars = len(selected_word)
     print("")
     print("Can you guess the word?:")
@@ -127,11 +129,19 @@ def random_word_selection():
     print("")
     return selected_word
 
-def user_guess():
-    user_guess = input("Enter a letter you think is in this word: ")
+def check_user_guess(string, sub_string):
+    string = selected_word
+    sub_string = input("Enter a letter you think is in this word: ")
     total_user_guesses = 1
+
     while total_user_guesses < 7:
-        user_guess = input("Enter another guess: ")
+        if (string.find(sub_string) == -1):
+            print("No, sorry. Please try again.")
+            print("")
+        else:
+            print("Yes, excellent guess!")
+            print("")
+        sub_string = input("Enter another guess: ")
         total_user_guesses += 1
 
     # print(total_user_guesses)
@@ -147,7 +157,7 @@ def test():
 
     # random_category_selection() <--DOES NOT NEED TO BE CALLED-->
     random_word_selection()
-    user_guess()
+    check_user_guess(selected_word, input)
 
 # required function calls
 test()
