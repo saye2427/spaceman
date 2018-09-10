@@ -6,6 +6,7 @@
 import random
 import time
 import os
+import sys
 
 # word_dictionary = {
 #     "Animals" : ["aardvark", "alligator", "alpaca", "baboon", "badger", "bison", "buffalo", "camel", "caribou", "cheetah", "cougar", "crocodile", "elephant", "flamingo", "hamster", "penguin", "possum", "ocelot", "raccoon", "sheep", "tortoise", "turtle", "weasel", "whelk", "zorilla"],
@@ -47,16 +48,16 @@ import os
 # Word lists!!!
 Animals = ["aardvark", "alligator", "alpaca", "baboon", "badger", "bison", "buffalo", "camel", "caribou", "cheetah", "cougar", "crocodile", "elephant", "flamingo", "hamster", "penguin", "possum", "ocelot", "raccoon", "sheep", "tortoise", "turtle", "weasel", "whelk", "zorilla"],
 Art = ["airbrush", "carving", "ceramics", "collage", "crosshatching", "decoupage", "easel", "engraving", "fresco", "glassblowing", "graffiti", "landscape", "masterpiece", "mosaic", "paintbrush", "palette", "printing", "realism", "relief", "sculpture", "watercolor"],
-Astronomy = ["apogee", "asteroid", "constellation", "corona", "Earth", "heliocentric", "hypernova", "galaxy", "gravitation", "Jupiter", "Mars", "Mercury", "nebula", "Neptune", "parallax", "penumbra", "Pluto", "quasar", "Saturn", "supernova", "Uranus", "Venus", "zodiac"],
+Astronomy = ["apogee", "asteroid", "constellation", "corona", "earth", "heliocentric", "hypernova", "galaxy", "gravitation", "jupiter", "mars", "mercury", "nebula", "neptune", "parallax", "penumbra", "pluto", "quasar", "saturn", "supernova", "uranus", "venus", "zodiac"],
 Beach = ["bikini", "boardwalk", "catamaran", "currents", "lifeguard", "longboard", "paddleboat", "popsicle", "sailboat", "sandcastle", "seashell", "seashore", "starfish", "sunbathe", "sunburn", "sunglasses", "sunscreen", "surfboard", "tsunami", "umbrella", "volleyball"],
 Biomes = ["chaparral", "desert", "grassland", "jungle", "plain", "rainforest", "savanna", "swamp", "taiga", "tundra", "woodland"],
 Body = ["abdomen", "ankle", "artery", "bladder", "capillary", "cartilage", "clavicle", "diaphragm", "esophagus", "femur", "intestines", "kidney", "larynx", "pharynx", "sternum", "thorax", "trachea", "urethra", "wrist"],
 Carpenters_Tools = ["anvil", "chisel", "crowbar", "fastener", "hacksaw", "hammer", "screwdriver", "sharpener", "toolbox", "wedge", "workbench", "wrench"],
-Christmas = ["blizzard", "caroling", "chestnuts", "chimney", "cookies", "decorations", "eggnog", "evergreen", "fireplace", "fruitcake", "gingerbread", "Krampus", "mistletoe", "nutcracker", "ornaments", "presents", "Rudolph", "sugarplums", "yuletide"],
+Christmas = ["blizzard", "caroling", "chestnuts", "chimney", "cookies", "decorations", "eggnog", "evergreen", "fireplace", "fruitcake", "gingerbread", "krampus", "mistletoe", "nutcracker", "ornaments", "presents", "Rudolph", "sugarplums", "yuletide"],
 Colors = ["amber", "amethyst", "aquamarine", "beige", "cerulean", "chartreuse", "crimson", "cyan", "ebony", "emerald", "fuchsia", "indigo", "lavendar", "lilac", "magenta", "maroon", "periwinkle", "sienna", "slate", "vermilion", "wisteria"],
 Computers = ["algorithm", "application", "array", "binary", "browser", "captcha", "command", "dashboard", "desktop", "document", "domain", "download", "encryption", "hardware", "hypertext", "kernel", "malware", "phishing", "programmer", "spreadsheet", "typeface"],
 Cooking_Tools = ["apron", "carafe", "colander", "cookbook", "cutlery", "infuser", "grater", "juicer", "peeler", "percolater", "ramekin", "skewer", "strainer", "tablespoon", "teaspoon", "zester"],
-Country_Names = ["Afghanistan", "Albania", "Algeria", "Argentina", "Australia", "Azerbaijan", "Bahamas", "Bangladesh", "Bahrain", "Belgium", "Bulgaria", "Cambodia", "Canada", "Croatia", "Denmark", "Ecuador", "Finland", "Germany", "Guatemala", "Hungary", "Iceland", "Ireland", "Jamaica", "Kuwait", "Latvia", "Lebanon", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malaysia", "Mexico", "Mongolia", "Morocco", "Netherlands", "Nicaragua", "Pakistan", "Panama", "Paraguay", "Philippines", "Portugal", "Romania", "Rwanda", "Senegal", "Somalia", "Switzerland", "Tanzania", "Thailand", "Tunisia", "Uganda", "Ukraine", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Zambia", "Zimbabwe"],
+Country_Names = ["afghanistan", "albania", "algeria", "argentina", "australia", "azerbaijan", "bahamas", "bangladesh", "bahrain", "belgium", "bulgaria", "cambodia", "canada", "croatia", "denmark", "ecuador", "finland", "germany", "guatemala", "hungary", "iceland", "ireland", "jamaica", "kuwait", "latvia", "lebanon", "lithuania", "luxembourg", "macedonia", "madagascar", "malaysia", "mexico", "mongolia", "morocco", "netherlands", "nicaragua", "pakistan", "panama", "paraguay", "philippines", "portugal", "romania", "rwanda", "senegal", "somalia", "switzerland", "tanzania", "thailand", "tunisia", "uganda", "ukraine", "uruguay", "uzbekistan", "venezuela", "vietnam", "zambia", "zimbabwe"],
 Desserts = ["baklava", "biscotti", "brownies", "butterscotch", "cannoli", "cheesecake", "churros", "cobbler", "crepes", "cupcakes", "custard", "doughnut", "eclair", "fudge", "gingersnaps", "jellyroll", "ladyfingers", "macaroon", "meringue", "nougat", "parfait", "shortbread", "snickerdoodles", "souffle", "spumoni", "strudel", "sundae", "torte", "trifle", "turnover", "waffles", "zabaglione"],
 Dogs = ["beagle", "bloodhound", "bulldog", "corgi", "dachshund", "dalmatian", "husky", "maltese", "poodle", "purebred", "retriever", "samoyed", "schnauser", "spaniel", "westie"],
 Elements = ["actinium", "aluminum", "americium", "antimony", "argon", "barium", "beryllium", "bismuth", "bohrium", "boron", "bromine", "cadmium", "calcium", "californium", "carbon", "cerium", "cesium", "chlorine", "chromine", "cobalt", "copper", "curium", "dubnium", "dysprosium", "einsteinium", "europium", "fluorine", "francium", "gallium", "germanium", "hafnium", "helium", "hydrogen", "indium", "iodine", "iridium", "krypton", "lanthanum", "lawrencium", "lithium", "magnesium", "manganese", "mendelevium", "mercury", "molybdenum", "neptunium", "nickel", "niobium", "nitrogen", "osmium", "oxygen", "palladium", "phosphorus", "platinum", "plutonium", "polonium", "potassium", "promethium", "protactinium", "radium", "radon", "rhenium", "rhodium", "rubidium", "ruthenium", "rutherfordium", "scandium", "selenium", "silicon", "sodium", "strontium", "sulfur", "technetium", "thallium", "titanium", "tungsten", "ununtrium", "uranium", "vanadium", "xenon", "yttrium", "zirconium"],
@@ -66,9 +67,9 @@ Flowers = ["azalea", "begonia", "bellflower", "bluebell", "buttercup", "calendul
 Food_and_Drink = ["almonds", "anchovies", "appetizer", "appetite", "bacon", "bagel", "barbecue", "barley", "beancurd", "biscuits", "bland", "bread", "breakfast", "brisket", "broil", "brunch", "buckwheat", "burrito", "butter", "calorie", "candy", "caramel", "carbohydrate", "cashews", "cassava", "casserole", "caviar", "cereal", "cheddar", "cheese", "chicken", "chili", "chips", "chocolate", "chopsticks", "chutney", "coffee", "coleslaw", "cornflakes", "cornmeal", "crackers", "cuisine", "dessert", "digest", "dinner", "dressing", "feast", "guacamole", "hamburger", "hummus", "jellybeans", "lasagna", "lemonade", "lentils", "licorice", "lobster", "lunchmeat", "macaroni", "meatballs", "meatloaf", "milkshake", "mincemeat", "mozzarella", "mutton", "napkins", "noodles", "omelette", "omurice", "pancakes", "pepperoni", "pickles", "picnic", "pilaf", "pizza", "popcorn", "popovers", "pretzel", "quiche", "quinoa", "ravioli", "recipes", "refreshments", "refrigerator", "relish", "restaurant", "salty", "sandwich", "sauerkraut", "sausage", "savory", "scallops", "spaghetti", "spareribs", "spoon", "spork", "steak", "stirfry", "sustenance", "sweet", "tacos", "tamales", "tapioca", "teriyaki", "umami", "utensils", "vegetables", "vitamins", "water"],
 Fruit = ["apple", "apricot", "avocado", "banana", "berries", "blackberry", "blueberry", "boysenberry", "breadfruit", "cantaloupe", "cherries", "citron", "citrus", "coconut", "crabapple", "cranberry", "dates", "dragonfruit", "durian", "elderberry", "grapes", "grapefruit", "guava", "honeydew", "jackfruit", "kumquat", "lemons", "limes", "lingonberry", "loquat", "lychee", "mangoes", "marionberry", "melons", "mulberry", "nectarine", "oranges", "papaya", "peaches", "pears", "persimmon", "pineapples", "plantain", "plums", "pomegranate", "pomelo", "prunes", "quince", "raspberry", "strawberry", "tangelo", "tangerine", "watermelon"],
 Herbs_and_Spices = ["allspice", "angelica", "anise", "annato", "basil", "capers", "cardamom", "cayenne", "chervil", "chicory", "chives", "cilantro", "cinnamon", "coriander", "fennel", "garlic", "ginger", "horseradish", "nutmeg", "oregano", "paprika", "parsley", "pepper", "peppermint", "rosemary", "saffron", "spearmint", "tarragon", "thyme", "turmeric", "vanilla", "wasabi", "watercress", "wintergreen"],
-Holidays = ["Christmas", "Diwali", "Easter", "Eid", "Halloween", "Hanukkah", "Juneteenth", "Kwanzaa", "Passover", "Purim", "Ramadan", "Thanksgiving"],
+Holidays = ["christmas", "diwali", "easter", "eid", "halloween", "hanukkah", "juneteenth", "kwanzaa", "passover", "purim", "ramadan", "thanksgiving"],
 Insects = ["aphid", "armyworm", "bedbug", "beetle", "bumblebee", "butterfly", "caterpillar", "cicada", "cockroach", "cricket", "damselfly", "dragonfly", "earwig", "gnats", "grasshopper", "honeybee", "hornet", "junebug", "katydid", "ladybug", "lacewing", "leafhopper", "maggot", "mantid", "mantis", "mayfly", "mealworm", "monarch", "mosquito", "planthopper", "scarab", "silkworm", "termite", "waterbug", "weevil", "yellowjacket"],
-Languages = ["Afrikaans", "Albanian", "Arabic", "Armenian", "Belarusan", "Bengali", "Bulgarian", "Burmese", "Cantonese", "Chinese", "Croatian", "Danish", "Dutch", "English", "Estonian", "Filipino", "Finnish", "French", "Gaelic", "German", "Greek", "Hebrew", "Hindi", "Hungarian", "Italian", "Japanese", "Korean", "Malay", "Persian", "Portuguese", "Punjabi", "Russian", "Sanskrit", "Somali", "Swedish", "Tagalog", "Tamil", "Turkish", "Ukrainian", "Urdu", "Vietnamese", "Welsh", "Yiddish"],
+Languages = ["afrikaans", "albanian", "arabic", "armenian", "belarusan", "bengali", "bulgarian", "burmese", "cantonese", "chinese", "croatian", "danish", "dutch", "english", "estonian", "filipino", "finnish", "french", "gaelic", "german", "greek", "hebrew", "hindi", "hungarian", "italian", "japanese", "korean", "malay", "persian", "portuguese", "punjabi", "russian", "sanskrit", "somali", "swedish", "tagalog", "tamil", "turkish", "ukrainian", "urdu", "vietnamese", "welsh", "yiddish"],
 Measurement = ["acres", "angstrom", "bales", "bytes", "carats", "centimeter", "decigram", "deciliter", "decimal", "decimeter", "degree", "depth", "digit", "dozen", "dram", "fathom", "gallon", "grain", "gross", "gutenberg", "height", "inches", "karat", "kilogram", "kilometer", "knots", "league", "length", "lightyear", "liters", "megameter", "megapixel", "megaton", "microgram", "microliter", "micron", "milliliter", "millimeter", "minute", "nanometer", "octave", "ounces", "pennyweight", "percent", "percentile", "picogram", "picoliter", "picometer", "pints", "pixels", "pound", "quart", "radian", "ruler", "scale", "score", "smidgen", "spoonful", "standard", "thermometer", "units", "volume", "weight", "width", "yards", "zolls"],
 Metals = ["alloy", "aluminum", "antimony", "brass", "bronze", "chrome", "chromium", "copper", "gold", "gunmetal", "iron", "iridium", "lead", "magnesium", "mercury", "pewter", "platinum", "silver", "steel", "titanium", "tungsten", "uranium", "zinc"],
 Musical_Instruments = ["accordion", "bagpipe", "banjo", "bassoon", "bugle", "castanets", "cello", "cimbalom", "clarinet", "cornet", "cowbell", "cymbals", "drums", "drumsticks", "dulcimer", "fiddle", "flute", "glockenspiel", "guitar", "harmonica", "harmonium", "harpsichord", "kazoo", "kettledrum", "keyboard", "mandolin", "maracas", "marimba", "ocarina", "organ", "piano", "piccolo", "recorder", "saxophone", "sitar", "strings", "tabla", "tambourine", "timpani", "triangle", "trombone", "trumpet", "ukelele", "vibraphone", "viola", "violin", "whistle", "woodwinds", "xylophone", "zither"],
@@ -83,8 +84,8 @@ Weather = ["accumulation", "atmosphere", "aurora", "balmy", "barometer", "biosph
 category_list = ["Animals", "Art", "Astronomy", "Beach", "Biomes", "Body", "Carpenters_Tools", "Christmas", "Colors", "Computers", "Cooking_Tools", "Country_Names", "Desserts", "Dogs", "Elements", "Fields_of_Science", "Fish", "Flowers", "Food_and_Drink", "Fruit", "Herbs_and_Spices", "Holidays", "Insects", "Languages", "Measurement", "Metals", "Musical_Instruments", "Plants", "Rocks_and_Minerals", "Science_and_Lab", "Shapes", "Sports", "Vegetables", "Weather"]
 var_list = [Animals, Art, Astronomy, Beach, Biomes, Body, Carpenters_Tools, Christmas, Colors, Computers, Cooking_Tools, Country_Names, Desserts, Dogs, Elements, Fields_of_Science, Fish, Flowers, Food_and_Drink, Fruit, Herbs_and_Spices, Holidays, Insects, Languages, Measurement, Metals, Musical_Instruments, Plants, Rocks_and_Minerals, Science_and_Lab, Shapes, Sports, Vegetables, Weather]
 
-user_progress = []
 incorrect_guesses = []
+user_progress = []
 
 # welcome function
 def hello_user():
@@ -95,7 +96,7 @@ def ready_to_play():
     ready = str(input("Are you ready to play? (y/n): "))
     if ready == 'y' or ready == 'Y':
         print("Alright, time to put on your best thinking-cap!!!")
-        time.sleep(1)
+        time.sleep(3)
         os.system('clear')
     elif ready == 'n' or ready == 'N':
         print("Okay, goodbye.")
@@ -122,6 +123,7 @@ def random_word_selection():
         selected_word = random.choice(word_list)
 
     # print(selected_word)
+
     global num_chars
     num_chars = len(selected_word)
     print("")
@@ -135,7 +137,7 @@ def random_word_selection():
 
 def check_user_guess(string, sub_string):
     string = selected_word
-    sub_string = input("Enter a letter you think is in this word: ")
+    sub_string = input("Enter a letter you think is in this word. Please enter only lowercase letters!!!: ")
     total_user_guesses = 1
 
     update_user_view(selected_word, sub_string)
@@ -149,9 +151,10 @@ def check_user_guess(string, sub_string):
             print(new_blanks)
             print("")
             print("Incorrect guesses: " + str(incorrect_guesses))
+            print("Correct guesses: " + str(user_progress))
             print("")
 
-            sub_string = input("Enter another guess or enter the word if you think you know it: ")
+            sub_string = input("Enter another guess or enter the word if you think you know it; lowercase letters only!: ")
             update_user_view(selected_word, sub_string)
             total_user_guesses += 1
 
@@ -161,13 +164,16 @@ def check_user_guess(string, sub_string):
             break
 
         else:
+            user_progress.append(sub_string)
             print("Yes, excellent guess!")
             print("")
             # insert statement here which returns corresponding blanks filled in with correct letter
             print(new_blanks)
             print("Incorrect guesses: " + str(incorrect_guesses))
+            print("Correct guesses: " + str(user_progress))
+            print("")
 
-            sub_string = input("Enter another guess or enter the full word if you think you know it: ")
+            sub_string = input("Enter another guess or enter the full word if you think you know it; lowercase letters only!: ")
             update_user_view(selected_word, sub_string)
             total_user_guesses += 1
 
@@ -187,6 +193,7 @@ def update_user_view(selected_word, input):
         else:
             # Add a blank at index i to the user_view if it doesn't match the guess
             new_blanks = new_blanks + " _ "
+
     return new_blanks
 
 # test function!!!
@@ -209,8 +216,8 @@ def test():
     # print(new_blanks)
 
 # required function calls
-test()
-# hello_user()
-# ready_to_play()
-# random_word_selection()
-# check_user_guess(selected_word, input)
+# test()
+hello_user()
+ready_to_play()
+random_word_selection()
+check_user_guess(selected_word, input)
