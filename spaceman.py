@@ -83,6 +83,9 @@ Weather = ["accumulation", "atmosphere", "aurora", "balmy", "barometer", "biosph
 category_list = ["Animals", "Art", "Astronomy", "Beach", "Biomes", "Body", "Carpenters_Tools", "Christmas", "Colors", "Computers", "Cooking_Tools", "Country_Names", "Desserts", "Dogs", "Elements", "Fields_of_Science", "Fish", "Flowers", "Food_and_Drink", "Fruit", "Herbs_and_Spices", "Holidays", "Insects", "Languages", "Measurement", "Metals", "Musical_Instruments", "Plants", "Rocks_and_Minerals", "Science_and_Lab", "Shapes", "Sports", "Vegetables", "Weather"]
 var_list = [Animals, Art, Astronomy, Beach, Biomes, Body, Carpenters_Tools, Christmas, Colors, Computers, Cooking_Tools, Country_Names, Desserts, Dogs, Elements, Fields_of_Science, Fish, Flowers, Food_and_Drink, Fruit, Herbs_and_Spices, Holidays, Insects, Languages, Measurement, Metals, Musical_Instruments, Plants, Rocks_and_Minerals, Science_and_Lab, Shapes, Sports, Vegetables, Weather]
 
+user_progress = []
+incorrect_guesses = []
+
 # welcome function
 def hello_user():
     print("Hello there! Welcome to spaceman, a less gruesome version of the favorite wordgame, hangman!")
@@ -124,6 +127,7 @@ def random_word_selection():
     print("")
     print("Can you guess the word?:")
 
+    global blanks
     blanks = str(num_chars * "_ ")
     print(blanks)
     print("")
@@ -134,17 +138,56 @@ def check_user_guess(string, sub_string):
     sub_string = input("Enter a letter you think is in this word: ")
     total_user_guesses = 1
 
+    update_user_view(selected_word, sub_string)
+
     while total_user_guesses < 7:
         if (string.find(sub_string) == -1):
+            incorrect_guesses.append(sub_string)
+
             print("No, sorry. Please try again.")
             print("")
+            print(new_blanks)
+            print("")
+            print("Incorrect guesses: " + str(incorrect_guesses))
+            print("")
+
+            sub_string = input("Enter another guess or enter the word if you think you know it: ")
+            update_user_view(selected_word, sub_string)
+            total_user_guesses += 1
+
+        elif (sub_string == selected_word):
+            print("")
+            print("You did it!!! Spaceman gets to stay with us on planet Earth!!!")
+            break
+
         else:
             print("Yes, excellent guess!")
             print("")
-        sub_string = input("Enter another guess: ")
-        total_user_guesses += 1
+            # insert statement here which returns corresponding blanks filled in with correct letter
+            print(new_blanks)
+            print("Incorrect guesses: " + str(incorrect_guesses))
+
+            sub_string = input("Enter another guess or enter the full word if you think you know it: ")
+            update_user_view(selected_word, sub_string)
+            total_user_guesses += 1
+
+    else:
+        print("")
+        print("Sorry, gameover. Your word was " + selected_word + ". Alas, spaceman must now be shot into space! ;-;")
 
     # print(total_user_guesses)
+
+def update_user_view(selected_word, input):
+    global new_blanks
+    new_blanks = ""
+
+    for i in range(len(selected_word)):
+        if selected_word[i] == input:
+            new_blanks = new_blanks + input # Adds user guess to string if guess is correct
+        else:
+            # Add a blank at index i to the user_view if it doesn't match the guess
+            new_blanks = new_blanks + " _ "
+    return new_blanks
 
 # test function!!!
 def test():
@@ -158,6 +201,12 @@ def test():
     # random_category_selection() <--DOES NOT NEED TO BE CALLED-->
     random_word_selection()
     check_user_guess(selected_word, input)
+
+    # # test update_user_view function
+    # update_user_view("chicken", "i")
+    # print(new_blanks)
+    # update_user_view("chicken", "m")
+    # print(new_blanks)
 
 # required function calls
 test()
