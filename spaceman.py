@@ -86,14 +86,17 @@ var_list = [Animals, Art, Astronomy, Beach, Biomes, Body, Carpenters_Tools, Chri
 
 incorrect_guesses = []
 user_progress = []
-letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+# letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 # welcome function
 def hello_user():
     print("Hello there! Welcome to spaceman, a less gruesome version of the favorite wordgame, hangman!")
+    print("You will have a total of 7 guesses to guess a randomly selected word.")
+    print("And should you fail, our beloved spaceman will be shot into space with no hope of return!!! (O_O)")
 
 # ready to play function -- drawn from my madlibs app
 def ready_to_play():
+    print("")
     ready = str(input("Are you ready to play? (y/n): "))
     if ready == 'y' or ready == 'Y':
         print("Alright, time to put on your best thinking-cap!!!")
@@ -143,7 +146,15 @@ def check_user_guess(string, sub_string):
     update_user_view(selected_word, sub_string)
 
     while total_user_guesses < 7:
-        if (string.find(sub_string) == -1):
+        if sub_string.isalpha() == False or sub_string.islower() == False or (len(sub_string) > 1 and len(sub_string) < len(selected_word)):
+            print("Invalid input! Please try again.")
+            sub_string = input("Enter another guess or enter the word if you think you know it; lowercase letters only!: ")
+
+        elif sub_string in user_progress or sub_string in incorrect_guesses:
+            print("You already guessed that!")
+            sub_string = input("Enter another guess or enter the word if you think you know it; lowercase letters only!: ")
+
+        elif (string.find(sub_string) == -1):
             incorrect_guesses.append(sub_string)
 
             print("No, sorry. Please try again.")
@@ -179,6 +190,8 @@ def check_user_guess(string, sub_string):
 
     else:
         print("")
+        print(new_blanks)
+        print("")
         print("Sorry, gameover. Your word was " + selected_word + ". Alas, spaceman must now be shot into space! ;-;")
 
     # print(total_user_guesses)
@@ -189,10 +202,20 @@ def update_user_view(selected_word, input):
 
     for i in range(len(selected_word)):
         if selected_word[i] == input:
-            new_blanks = new_blanks + input + " "# Adds user guess to string if guess is correct
+            new_blanks = new_blanks + input + " " # Adds user guess to string if guess is correct
         else:
             # Add a blank at index i to the user_view if it doesn't match the guess
             new_blanks = new_blanks + "_ "
+
+    return new_blanks
+
+# fix this function -- it is broken ;-;
+def update_new_blanks(selected_word, input, new_blanks):
+    for i in range(len(new_blanks)):
+        if selected_word[int(i/2)] == input:
+            new_blanks.replace(new_blanks[i], input)
+        else:
+            new_blanks.replace(new_blanks[i], "_")
 
     return new_blanks
 
