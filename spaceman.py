@@ -86,12 +86,13 @@ var_list = [Animals, Art, Astronomy, Beach, Biomes, Body, Carpenters_Tools, Chri
 
 incorrect_guesses = []
 user_progress = []
+letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 # welcome function
 def hello_user():
     print("Hello there! Welcome to spaceman, a less gruesome version of the favorite wordgame, hangman!")
 
-# ready to play function -- drawn from madlibs app
+# ready to play function -- drawn from my madlibs app
 def ready_to_play():
     ready = str(input("Are you ready to play? (y/n): "))
     if ready == 'y' or ready == 'Y':
@@ -123,7 +124,6 @@ def random_word_selection():
         selected_word = random.choice(word_list)
 
     # print(selected_word)
-
     global num_chars
     num_chars = len(selected_word)
     print("")
@@ -189,10 +189,10 @@ def update_user_view(selected_word, input):
 
     for i in range(len(selected_word)):
         if selected_word[i] == input:
-            new_blanks = new_blanks + input # Adds user guess to string if guess is correct
+            new_blanks = new_blanks + input + " "# Adds user guess to string if guess is correct
         else:
             # Add a blank at index i to the user_view if it doesn't match the guess
-            new_blanks = new_blanks + " _ "
+            new_blanks = new_blanks + "_ "
 
     return new_blanks
 
