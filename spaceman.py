@@ -2,7 +2,7 @@
 # Limit to single words (not two-word compound entries), and entries 5 letters or more
 # N.B. Dictionary derived [in part] from: http://www.enchantedlearning.com/wordlist/
 
-# import python library for random selection
+# import python libraries for random selection, time, and terminal control
 import random
 import time
 import os
@@ -45,7 +45,7 @@ import sys
 #     "Weather" : ["accumulation", "atmosphere", "aurora", "balmy", "barometer", "biosphere", "blizzard", "blustery", "breeze", "cirrus", "climate", "cloud", "condensation", "cumulonimbus", "cumulus", "current", "cyclone", "degree", "depression", "downdraft", "downpour", "downwind", "drizzle", "drought", "duststorm", "evaporation", "forecast", "humidity", "hurricane", "hydrosphere", "isotherm", "lightning", "meteorology", "moisture", "monsoon", "nimbus", "nimbostratus", "noreaster", "overcast", "permafrost", "precipitation", "pressure", "radar", "rainbow", "sandstorm", "snowfall", "snowstorm", "stratosphere", "stratus", "temperate", "temperature", "thermometer", "thunderstorm", "troposphere", "typhoon", "upwind", "visibility", "vortex", "weathervane", "whiteout", "zones"],
 # }
 
-# Word lists!!!
+# Word lists!!! <-- Dictionary didn't work ;-;
 Animals = ["aardvark", "alligator", "alpaca", "baboon", "badger", "bison", "buffalo", "camel", "caribou", "cheetah", "cougar", "crocodile", "elephant", "flamingo", "hamster", "penguin", "possum", "ocelot", "raccoon", "sheep", "tortoise", "turtle", "weasel", "whelk", "zorilla"],
 Art = ["airbrush", "carving", "ceramics", "collage", "crosshatching", "decoupage", "easel", "engraving", "fresco", "glassblowing", "graffiti", "landscape", "masterpiece", "mosaic", "paintbrush", "palette", "printing", "realism", "relief", "sculpture", "watercolor"],
 Astronomy = ["apogee", "asteroid", "constellation", "corona", "earth", "heliocentric", "hypernova", "galaxy", "gravitation", "jupiter", "mars", "mercury", "nebula", "neptune", "parallax", "penumbra", "pluto", "quasar", "saturn", "supernova", "uranus", "venus", "zodiac"],
@@ -209,7 +209,7 @@ def update_user_view(selected_word, input):
 
     return new_blanks
 
-# fix this function -- it is broken ;-;
+# fix this function for consistently updated blanks-- it is currently broken ;-;
 def update_new_blanks(selected_word, input, new_blanks):
     for i in range(len(new_blanks)):
         if selected_word[int(i/2)] == input:
