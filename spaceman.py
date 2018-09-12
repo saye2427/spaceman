@@ -148,11 +148,15 @@ def check_user_guess(string, sub_string):
     while total_user_guesses < 7:
         if sub_string.isalpha() == False or sub_string.islower() == False or (len(sub_string) > 1 and len(sub_string) < len(selected_word)):
             print("Invalid input! Please try again.")
+            print("")
             sub_string = input("Enter another guess or enter the word if you think you know it; lowercase letters only!: ")
+            update_user_view(selected_word, sub_string)
 
         elif sub_string in user_progress or sub_string in incorrect_guesses:
             print("You already guessed that!")
+            print("")
             sub_string = input("Enter another guess or enter the word if you think you know it; lowercase letters only!: ")
+            update_user_view(selected_word, sub_string)
 
         elif (string.find(sub_string) == -1):
             incorrect_guesses.append(sub_string)
